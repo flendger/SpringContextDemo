@@ -2,9 +2,9 @@ package ru.flendger.spring.context.demo;
 
 public class Product {
 
-    private int id;
-    private String title;
-    private float price;
+    private final int id;
+    private final String title;
+    private final float price;
 
     public Product(int id, String title, float price) {
         this.id = id;
