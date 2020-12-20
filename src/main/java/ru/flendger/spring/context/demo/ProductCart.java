@@ -1,21 +1,23 @@
 package ru.flendger.spring.context.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import java.util.Collections;
 import java.util.HashMap;
 
 @Component("cart")
 @Scope("prototype")
 public class ProductCart implements Cart{
 
+    private final ProductRepository rep;
     private final HashMap<Integer, CartItem> products;
 
     @Autowired
-    private ProductRepository rep;
-
-    public ProductCart() {
+    public ProductCart(ProductRepository rep) {
+        this.rep = rep;
         products = new HashMap<>();
     }
 
